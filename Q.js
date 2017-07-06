@@ -186,7 +186,7 @@ const Q = (_=>{
   // Promise a -> C a
   c.await = p=>{
     const b = c.emptyBox();
-    p.then(d=>c.putBox(b,{fulfill:d}),e=>c.putBox(b,{reject:e}));
+    p.then(d=>c.run(c.putBox(b,{fulfill:d})),e=>c.run(c.putBox(b,{reject:e})));
     return c.takeBox(b);
   };
 
